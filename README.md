@@ -1,6 +1,6 @@
 # Welcome
 
-Welcome to the Gojek VerneMQ documentation! This project is a fork of the awesome ❤️  [MQTT broker](https://github.com/vernemq/vernemq) of the same name. We are just trying to add some functionalities that we think can be useful for specific use-cases. This is a reference guide for most of the available features and options of VerneMQ. The [Getting Started guide](getting-started.md) might be a good entry point.
+Welcome to the Gojek VerneMQ documentation! This project is a fork of the awesome ❤️  [MQTT broker](https://github.com/vernemq/vernemq) of the same name. We want to add some functionalities that we think can be useful for specific use-cases. This is a reference guide for most of the available features and options of VerneMQ. The [Getting Started guide](getting-started.md) might be a good entry point.
 
 ## Summary of primary additions over core VerneMQ (1.11.0)
 
