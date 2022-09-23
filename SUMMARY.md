@@ -2,13 +2,10 @@
 
 * [Welcome](README.md)
 * [Getting Started](getting-started.md)
-* [Downloads](https://vernemq.com/downloads)
-* [VerneMQ / MQTT Introduction](https://vernemq.com/intro)
+* [MQTT Introduction](Add link here)
 
 ## Installing VerneMQ
 
-* [Installing on Debian and Ubuntu](installation/debian_and_ubuntu.md)
-* [Installing on CentOS and RHEL](installation/centos_and_redhat.md)
 * [Running VerneMQ using Docker](installation/docker.md)
 
 ## Configuring VerneMQ

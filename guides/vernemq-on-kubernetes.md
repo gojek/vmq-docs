@@ -23,18 +23,6 @@ For the sake of clarity, this guide defines the following terms:
 This guide assumes that you're familiar with Kubernetes
 {% endhint %}
 
-## Deploy VerneMQ with Helm
-
-Helm calls itself the package manager for Kubernetes. In Helm a package is called a chart. VerneMQ comes with such a Helm chart simplifying the initial setup tremendously. If you don't have setup Helm yet, please navigate through their [quickstart guide](https://helm.sh/docs/using_helm/#quickstart-guide). 
-
-Once Helm is properly setup just run the following command in your shell.
-
-```text
-helm install vernemq/vernemq
-```
-
-This will deploy a single node VerneMQ cluster. Have a look at the possible configuration [here](https://github.com/vernemq/docker-vernemq/tree/master/helm/vernemq#configuration).
-
 ## Deploy VerneMQ using the Kubernetes Operator
 
 A Kubernetes Operator is a method of packaging, deploying and managing a Kubernetes application. The VerneMQ Operator is basically just a Pod with the task to deploy a VerneMQ cluster given a so called Custom Resource Definition \(CRD\). The [VerneMQ CRD](https://github.com/vernemq/vmq-operator/blob/master/docs/api.md#vernemqspec) aims that all required configuration can be made through the CRD and no further configuration should be required. The following command installs the operator along a two node VerneMQ cluster into the namespace `messaging` 
