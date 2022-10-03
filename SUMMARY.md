@@ -2,7 +2,7 @@
 
 * [Welcome](README.md)
 * [Getting Started](getting-started.md)
-* [MQTT Introduction](Add link here)
+* [MQTT Introduction](http://www.steves-internet-guide.com/mqtt/)
 
 ## Installing VerneMQ
 

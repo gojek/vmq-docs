@@ -2,7 +2,7 @@
 description: Configure Routing store.
 ---
 
-One of the problems that we tried to address was that of routing state not syncing when one of the nodes did was restarted. The subscription state used to build up on other nodes and the restarted node was unable to catch up to the other nodes. We finally achieved this using an external store(redis) for maintaining subscription state. 
+One of the problems that we tried to address was that of subscription state not syncing when one of the nodes restarted. The subscription state used to build up on other nodes and the restarted node was unable to catch up to the other nodes. We finally achieved this using an external store(redis) for maintaining a common subscription state for all the nodes. 
 
 You can use the redis based external subscription store using the following configs as mentioned below:
 

@@ -3,8 +3,6 @@ description: >-
   A closer look at an example vernemq.conf file (Note: This is a
   work-in-progress section)
 ---
-[Here](Add plugins here)
-
 
 # The VerneMQ conf file
 
