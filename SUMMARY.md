@@ -11,9 +11,10 @@
 ## Configuring VerneMQ
 
 * [Introduction](configuration/introduction.md)
-* [The VerneMQ conf file](configation/the-vernemq-conf-file.md)
+* [The VerneMQ conf file](configuration/the-vernemq-conf-file.md)
 * [Auth using files](configuration/file-auth.md)
 * [Auth using a database](configuration/db-auth.md)
+* [Enhanced Auth](configuration/customauth.md)
 * [MQTT Options](configuration/options.md)
 * [MQTT Listeners](configuration/listeners.md)
 * [HTTP Listeners](configuration/http-listeners.md)
@@ -25,6 +26,8 @@
 * [Shared subscriptions](configuration/shared_subscriptions.md)
 * [Advanced Options](configuration/advanced_options.md)
 * [Storage](configuration/storage.md)
+* [No Op Engine](configuration/noopengine.md)
+* [Redis based subscription store](configuration/routing.md)
 * [MQTT Bridge](configuration/bridge.md)
 
 ## VerneMQ Clustering
@@ -63,6 +66,7 @@
 * [Erlang Boilerplate](plugindevelopment/boilerplate.md)
 * [Lua Scripting Support](plugindevelopment/luaplugins.md)
 * [Webhooks](plugindevelopment/webhookplugins.md)
+* [Events sidecar Plugin](plugindevelopment/eventssidecarplugins.md)
 
 ## Misc
 
