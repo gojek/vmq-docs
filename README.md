@@ -5,10 +5,10 @@ Welcome to the Gojek VerneMQ documentation! This project is a fork of the awesom
 ## Summary of primary additions over core VerneMQ (1.11.0)
 
 We have added the following features over the core VerneMQ (1.11.0) features. These features have been added as a result of few drawbacks that we felt should be addressed better.
-- This project provides an option to disable persistence: [no op engine](configuration/noopengine.md)
-- [Redis based subscription store](configuration/routing.md)
-- [jwt based authentication and token based ACLs](configuration/customauth.md)
-- [Events sidecar plugin](plugindevelopment/eventssidecarplugins.md)
+- This project provides an option to disable persistence: [no-op engine](configuration/noopengine.md)
+- [Redis based subscription-store](configuration/routing.md)
+- [jwt based authentication and token based ACL](configuration/customauth.md)
+- [Events sidecar plugin using tcp](plugindevelopment/eventssidecarplugins.md)
 
 
 ## How to help improve this documentation
