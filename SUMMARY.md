@@ -27,6 +27,8 @@
 * [Advanced Options](configuration/advanced_options.md)
 * [Storage](configuration/storage.md)
 * [No Op Engine](configuration/noopengine.md)
+* [Generic offline store](configuration/genericofflinestore.md)
+* [Redis based message passing](configuration/messagepassing.md)
 * [Redis based subscription store](configuration/routing.md)
 * [MQTT Bridge](configuration/bridge.md)
 

@@ -6,16 +6,13 @@ description: A quick and simple guide to get started with VerneMQ
 
 ## Installing VerneMQ
 
-VerneMQ is a high-performance, distributed MQTT message broker. It scales horizontally and vertically on commodity hardware to support a high number of concurrent publishers and consumers while maintaining low latency and fault tolerance. To use it, all you need to do is install the VerneMQ package.
-
-Choose your OS and follow the instructions:
-
-* [CentOS/RHEL](installation/centos_and_redhat.md)
-* [Debian/Ubuntu](installation/debian_and_ubuntu.md)
-
-It is also possible to run VerneMQ using our Docker image:
+VerneMQ is a high-performance, distributed MQTT message broker. It scales horizontally and vertically on commodity hardware to support a high number of concurrent publishers and consumers while maintaining low latency and fault tolerance. To use it, run VerneMQ using our Docker image:
 
 * [Docker](installation/docker.md)
+
+{% hint style="info" %}
+This new version of VerneMQ now also requires redis for its operation. Refer [new message passing model](configuration/messagepassing.md) for its configuration.
+{% endhint %}
 
 ## Starting VerneMQ
 
