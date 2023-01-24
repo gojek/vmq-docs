@@ -34,6 +34,49 @@ redis_database = 0
 ##   - text
 redis_lua_dir = ./etc/lua
 
+## This option specifies the list of comma separated connect options list
+## [[{host, "localhost"}, {port, 1234}]] of redis shards used for message passing.
+## 
+## Default: [[{host,"127.0.0.1"},{port,6379},{database,1}]]
+## 
+## Acceptable values:
+##   - text
+msg_queue_redis_shards_connect_options = [[{host,"127.0.0.1"},{port,6379},{database,1}]]
+
+## This option specifies the number of worker processes per redis shard
+## that will poll their main queues in message passing redis shard for new messages.
+## 
+## Default: 1
+## 
+## Acceptable values:
+##   - an integer
+main_queue_workers_per_redis_shard = 1
+
+## This option specifies the interval (in milliseconds) a worker
+## process waits before making another poll request.
+## 
+## Default: 0
+## 
+## Acceptable values:
+##   - an integer
+redis_queue_sleep_interval = 0
+
+## Rolls out all_queues_setup_check.
+## 
+## Default: 2000
+## 
+## Acceptable values:
+##   - an integer
+message_store_retry_interval = 2000
+
+## Rolls out all_queues_setup_check.
+## 
+## Default: 2
+## 
+## Acceptable values:
+##   - an integer
+message_store_nr_of_retries = 2
+
 ## Rolls out all_queues_setup_check.
 ## 
 ## Default: on
@@ -661,7 +704,7 @@ plugins.vmq_acl = on
 ## 
 ## Acceptable values:
 ##   - on or off
-plugins.vmq_gojek_auth = on
+plugins.vmq_enhanced_auth = on
 
 ## Lua based plugins.
 ## 
@@ -685,8 +728,7 @@ plugins.vmq_webhooks = off
 ## 
 ## Acceptable values:
 ##   - on or off
-plugins.vmq_events_sidecar = on
-plugins.vmq_events_sidecar.path = /Users/swagatparida/Workspace/vernemq-oss/plugins/_build/default
+plugins.vmq_events_sidecar = off
 
 ## The VerneMQ bridge plugin.
 ## 
@@ -1366,7 +1408,7 @@ vmq_events_sidecar.port = 8890
 ## 
 ## Acceptable values:
 ##   - the path to a file
-vmq_gojek_auth.acl_file = ./etc/vmq.acl
+vmq_enhanced_auth.acl_file = ./etc/vmq.acl
 
 ## set the acl reload interval in seconds, the value 0 disables
 ## the automatic reloading of the acl file.
@@ -1375,7 +1417,7 @@ vmq_gojek_auth.acl_file = ./etc/vmq.acl
 ## 
 ## Acceptable values:
 ##   - an integer
-vmq_gojek_auth.acl_reload_interval = 10
+vmq_enhanced_auth.acl_reload_interval = 10
 
 ## Set JWT Secret Key.
 ## 
@@ -1383,7 +1425,7 @@ vmq_gojek_auth.acl_reload_interval = 10
 ## 
 ## Acceptable values:
 ##   - text
-vmq_gojek_auth.secret_key = secret_key
+vmq_enhanced_auth.secret_key = secret_key
 
 ## Enable auth_on_register.
 ## 
@@ -1391,7 +1433,7 @@ vmq_gojek_auth.secret_key = secret_key
 ## 
 ## Acceptable values:
 ##   - text
-vmq_gojek_auth.enable_jwt_auth = true
+vmq_enhanced_auth.enable_jwt_auth = true
 
 ## Enable auth_on_register.
 ## 
@@ -1399,7 +1441,49 @@ vmq_gojek_auth.enable_jwt_auth = true
 ## 
 ## Acceptable values:
 ##   - text
-vmq_gojek_auth.enable_acl_hooks = false
+vmq_enhanced_auth.enable_acl_hooks = false
+
+## 
+## Default: vmq_offline_storage_engine_redis
+## 
+## Acceptable values:
+##   - text
+offline_message_store_engine = vmq_offline_storage_engine_redis
+
+## 
+## Default: localhost
+## 
+## Acceptable values:
+##   - text
+offline_message_store_opts.host = localhost
+
+## 
+## Default: 6379
+## 
+## Acceptable values:
+##   - an integer
+offline_message_store_opts.port = 6379
+
+## 
+## Default: 2
+## 
+## Acceptable values:
+##   - text
+offline_message_store_opts.database = 2
+
+## 
+## Default: 4000
+## 
+## Acceptable values:
+##   - an integer
+offline_message_store_opts.connect_timeout = 4000
+
+## 
+## Default: 2000
+## 
+## Acceptable values:
+##   - an integer
+offline_message_store_opts.query_timeout = 2000
 
 ## Where to emit the default log messages (typically at 'info'
 ## severity):
