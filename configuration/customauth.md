@@ -54,7 +54,7 @@ topic [read|write] <topic> label <acl_name>
 Only one space should be put between the topic and the preceeding keyword. Extra spaces will be interpreted as part of the topic! Also note that the ACL parser doesn't accept empty lines between entries.
 {% endhint %}
 
-The access type is controlled using `read` or `write`. If not provided then read an write access is granted for the `topic`. The `topic` can use the MQTT subscription wildcards `+` or `#`. 
+The access type is controlled using `read` or `write`. If not provided then read an write access is granted for the `topic`. The `topic` can use the MQTT subscription wildcards `+` or `#`.
 
 To make it easier to identify ACL entries, we can assign a name to them by adding a value after the `label` keyword. This label will be mapped with the topic and referred to as `acl_name` during the ACL parsing. The `acl_name` is added following events hooks such as `on_subscribe`, `on_publish`, `on_deliver`, `on_delivery_complete`, and `on_message_drop`. This allows for better instrumentation and observability.
 
