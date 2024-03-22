@@ -186,8 +186,6 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "matched_acl.proto";
 
-option go_package = "source.golabs.io/courier/apis-go/eventssidecar/v1";
-
 package eventssidecar.v1;
 
 message OnDeliver {
@@ -214,8 +212,6 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 import "matched_acl.proto";
-
-option go_package = "source.golabs.io/courier/apis-go/eventssidecar/v1";
 
 package eventssidecar.v1;
 
@@ -263,8 +259,6 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 import "matched_acl.proto";
-
-option go_package = "source.golabs.io/courier/apis-go/eventssidecar/v1";
 
 package eventssidecar.v1;
 

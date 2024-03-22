@@ -47,7 +47,7 @@ Both configuration parameters can also be changed at runtime using the `vmq-admi
 Topic access is added with lines of the format:
 
 ```text
-topic [read|write] <topic> label <acl_name>
+topic [read|write] <topic> [label <acl_name>]
 ```
 
 {% hint style="info" %}
@@ -69,7 +69,7 @@ user <username>
 It is also possible to define ACLs based on pattern substitution within the the topic. The form is the same as for the topic keyword, but using pattern as the keyword.
 
 ```text
-pattern [read|write] <topic> label <acl_name>
+pattern [read|write] <topic> [label <acl_name>]
 ```
 
 The patterns available for substitution are:
@@ -83,7 +83,7 @@ The substitution pattern must be the only text for that level of hierarchy. Patt
 This project extends these capabilities provided by vmq_acl . It is possible to only match certain parts of client-id or username using token as the keyword.
 
 ```text
-token [read|write] <topic> label <acl_name>
+token [read|write] <topic> [label <acl_name>]
 ```
 
 For example:
