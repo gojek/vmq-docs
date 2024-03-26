@@ -64,6 +64,52 @@ LengthAdjustment:    0,
 InitialBytesToStrip: 4,
 ```
 
+Supporting proto definitions for the events.
+
+### disconnect_reason
+
+```protobuf
+syntax = "proto3";
+
+package eventssidecar.v1;
+
+enum Reason {
+    REASON_UNSPECIFIED = 0;
+    REASON_NOT_AUTHORIZED = 1;
+    REASON_NORMAL_DISCONNECT = 2;
+    REASON_SESSION_TAKEN_OVER = 3;
+    REASON_ADMINISTRATIVE_ACTION = 4;
+    REASON_DISCONNECT_KEEP_ALIVE = 5;
+    REASON_DISCONNECT_MIGRATION = 6;
+    REASON_BAD_AUTHENTICATION_METHOD = 7;
+    REASON_REMOTE_SESSION_TAKEN_OVER = 8;
+    REASON_MQTT_CLIENT_DISCONNECT = 9;
+    REASON_RECEIVE_MAX_EXCEEDED = 10;
+    REASON_PROTOCOL_ERROR = 11;
+    REASON_PUBLISH_AUTH_ERROR = 12;
+    REASON_INVALID_PUBREC_ERROR = 13;
+    REASON_INVALID_PUBCOMP_ERROR = 14;
+    REASON_UNEXPECTED_FRAME_TYPE = 15;
+    REASON_EXIT_SIGNAL_RECEIVED = 16;
+    REASON_TCP_CLOSED = 17;
+}
+
+```
+
+### matched_acl
+
+```protobuf
+syntax = "proto3";
+
+package eventssidecar.v1;
+
+message MatchedACL {
+    string name = 1;
+    string pattern = 2;
+}
+
+```
+
 Following are the proto definitions for all supported events.
 
 ### on_client_gone
@@ -75,6 +121,7 @@ Sidecar payload format:
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "disconnect_reason.proto";
 
 package eventssidecar.v1;
 
@@ -82,6 +129,7 @@ message OnClientGone {
     google.protobuf.Timestamp timestamp = 1;
     string client_id = 2;
     string mountpoint = 3;
+    eventssidecar.v1.Reason reason = 4;
 }
 
 ```
@@ -94,6 +142,7 @@ Payload format:
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "disconnect_reason.proto";
 
 package eventssidecar.v1;
 
@@ -101,6 +150,7 @@ message OnClientOffline {
     google.protobuf.Timestamp timestamp = 1;
     string client_id = 2;
     string mountpoint = 3;
+    eventssidecar.v1.Reason reason = 4;
 }
 
 ```
@@ -134,18 +184,21 @@ Payload format:
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "matched_acl.proto";
 
 package eventssidecar.v1;
 
 message OnDeliver {
-    google.protobuf.Timestamp timestamp = 1;
-    string username = 2;
-    string client_id = 3;
-    string mountpoint = 4;
-    string topic = 5;
-    int32 qos = 6;
-    bool is_retain = 7;
-    bytes payload = 8;
+  google.protobuf.Timestamp timestamp = 1;
+  string username = 2;
+  string client_id = 3;
+  string mountpoint = 4;
+  string topic = 5;
+  int32 qos = 6;
+  bool is_retain = 7;
+  bytes payload = 8;
+  MatchedACL matched_acl = 9;
+  bool persisted = 10;
 }
 
 ```
@@ -158,6 +211,7 @@ Payload format:
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "matched_acl.proto";
 
 package eventssidecar.v1;
 
@@ -170,6 +224,8 @@ message OnDeliveryComplete {
   int32 qos = 6;
   bool is_retain = 7;
   bytes payload = 8;
+  MatchedACL matched_acl = 9;
+  bool persisted = 10;
 }
 
 ```
@@ -202,6 +258,7 @@ Payload format:
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "matched_acl.proto";
 
 package eventssidecar.v1;
 
@@ -216,6 +273,7 @@ message OnSubscribe {
 message TopicInfo {
     string topic = 1;
     int32 qos = 2;
+    MatchedACL matched_acl = 3;
 }
 
 ```
@@ -249,6 +307,7 @@ Payload format:
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "matched_acl.proto";
 
 option go_package = "source.golabs.io/courier/apis-go/eventssidecar/v1";
 
@@ -263,6 +322,7 @@ message OnPublish {
     string topic = 6;
     bytes payload = 7;
     bool retain = 8;
+    MatchedACL matched_acl = 9;
 }
 
 ```
@@ -304,6 +364,29 @@ message OnSessionExpired {
     string client_id = 2;
     string mountpoint = 3;
 }
+```
+
+### on\_message_drop
+
+```protobuf
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "matched_acl.proto";
+
+package eventssidecar.v1;
+
+message OnMessageDrop {
+    google.protobuf.Timestamp timestamp = 1;
+    string client_id = 2;
+    string mountpoint = 3;
+    int32 qos = 4;
+    string topic = 5;
+    bytes payload = 6;
+    string reason = 7;
+    MatchedACL matched_acl = 8;
+}
+
 ```
 ## Example TCP events sidecar in Golang
 
