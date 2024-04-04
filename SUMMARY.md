@@ -27,9 +27,9 @@
 * [Advanced Options](configuration/advanced_options.md)
 * [Storage](configuration/storage.md)
 * [No Op Engine](configuration/noopengine.md)
+* [Redis based subscription store](configuration/routing.md)
 * [Generic offline store](configuration/genericofflinestore.md)
 * [Redis based message passing](configuration/messagepassing.md)
-* [Redis based subscription store](configuration/routing.md)
 * [MQTT Bridge](configuration/bridge.md)
 
 ## VerneMQ Clustering
@@ -72,9 +72,11 @@
 
 ## Misc
 
+* [QoS 1 options](misc/qos-1-options.md)
 * [Loadtesting VerneMQ](misc/loadtesting.md)
 * [Not a tuning guide](misc/not-a-tuning-guide.md)
 * [Change Open File Limits](misc/change-open-file-limits.md)
+
 ## Guides
 
 * [A typical VerneMQ deployment](guides/typical-vernemq-deployment.md)
